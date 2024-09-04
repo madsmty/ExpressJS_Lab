@@ -6,23 +6,23 @@ In this lab, you will setup and run a basic ExpressJS app in NodeJS.
 
 # 2. Environment Prerequisites
 
-NodeJS v20 or higher
-npm v10.4 or higher
-nvm v1.1.11 or higher
-npx v10.4 or higher
-git v2.40.1 or higher
-Postman v11.11 or higher
-Mocha v10.7.3 or higher
-Chai v5.1.1
-Supertest v7.0.0
+* NodeJS v20 or higher
+* npm v10.4 or higher
+* nvm v1.1.11 or higher
+* npx v10.4 or higher
+* git v2.40.1 or higher
+* Postman v11.11 or higher
+* Mocha v10.7.3 or higher
+* Chai v5.1.1
+* Supertest v7.0.0
 
 # 3. Build Instructions
 
-Install or Update NodeJS
-Install or Update npm
-Install or update nvm
-Install or update npx
-Install or update git
+- Install or Update NodeJS
+- Install or Update npm
+- Install or update nvm
+- Install or update npx
+- Install or update git
 
 On the main directory, initialize the git repository
 git init

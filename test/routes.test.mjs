@@ -11,13 +11,13 @@ describe('Express App', () => {
   app.use('/', indexRouter);
   app.use('/users', userRouter);
 
-  it('should respond with a greeting message when getting the root endpoint (GET:localhost/', async () => {
+  it('Should respond with a greeting message when getting the root endpoint (GET:localhost/', async () => {
     const response = await request(app).get('/');
     expect(response.status).to.equal(200);
     expect(response.text).to.contain('Welcome to Express');
     });
 
-    it('should respond with a  message when getting the users endpoint (GET:localhost/users', async () => {
+    it('Should respond with a  message when getting the users endpoint (GET:localhost/users', async () => {
         const response = await request(app).get('/users');
         expect(response.status).to.equal(200);
         expect(response.text).to.contain('respond with a resource');
