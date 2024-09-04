@@ -25,15 +25,15 @@ In this lab, you will setup and run a basic ExpressJS app in NodeJS.
 - Install or update git
 
 On the main directory, initialize the git repository
-git init
+  git init
 
 Setup the expressJS application running the following command
-npx express-generator
+  npx express-generator
 
 Install Mocha, chai and supertest
-npm install mocha
-npm install chai
-npm install supertest
+  npm install mocha
+  npm install chai
+  npm install supertest
 
 # 4. Instructions
 
@@ -42,18 +42,18 @@ Inside this folder create a file named routes.test.mjs
 
 Paste the following into the test file
 
-// test/routes.test.js
-import {expect} from 'chai';
-import request from 'supertest';
-import express from 'express';
-import indexRouter from '../routes/index.js';
-import userRouter from '../routes/users.js';
+  // test/routes.test.js
+  import {expect} from 'chai';
+  import request from 'supertest';
+  import express from 'express';
+  import indexRouter from '../routes/index.js';
+  import userRouter from '../routes/users.js';
 
-describe('Express App', () => {
-  const app = express();
-  app.set('view engine', 'jade');
-  app.use('/', indexRouter);
-  app.use('/users', userRouter);
+  describe('Express App', () => {
+    const app = express();
+    app.set('view engine', 'jade');
+    app.use('/', indexRouter);
+    app.use('/users', userRouter);
 
   it('should respond with a greeting message when getting the root endpoint (GET:localhost/', async () => {
     const response = await request(app).get('/');
@@ -61,12 +61,12 @@ describe('Express App', () => {
     expect(response.text).to.contain('Welcome to Express');
     });
 
-    it('should respond with a  message when getting the users endpoint (GET:localhost/users', async () => {
-        const response = await request(app).get('/users');
-        expect(response.status).to.equal(200);
-        expect(response.text).to.contain('respond with a resource');
-        });
-});
+  it('should respond with a  message when getting the users endpoint (GET:localhost/users', async () => {
+    const response = await request(app).get('/users');
+    expect(response.status).to.equal(200);
+    expect(response.text).to.contain('respond with a resource');
+    });
+  });
 
 
 ## 4.1 Functional Requirements
