@@ -24,50 +24,47 @@ In this lab, you will setup and run a basic ExpressJS app in NodeJS.
 - Install or update npx
 - Install or update git
 
-On the main directory, initialize the git repository
-  git init
+Fork this git repository, and then clone the fork on your local machine
 
 Setup the expressJS application running the following command
-  npx express-generator
+        npx express-generator
+
+Install the dependencies
+        npm install
 
 Install Mocha, chai and supertest
-  npm install mocha
-  npm install chai
-  npm install supertest
+        npm install --save-dev mocha
+        npm install --save-dev chai
+        npm install --save-dev supertest
 
 # 4. Instructions
 
-Create a folder named test in the parent folder of the app
-Inside this folder create a file named routes.test.mjs
+If the environment was setup correctly you should be able to run the start script
 
-Paste the following into the test file
+        npm run start
 
-  // test/routes.test.js
-  import {expect} from 'chai';
-  import request from 'supertest';
-  import express from 'express';
-  import indexRouter from '../routes/index.js';
-  import userRouter from '../routes/users.js';
+After the server starts, open postman, and create a GET call to the following URL (note that port 3000 could be different if it is already being used on your local machine by another program): localhost:3000/ 
 
-  describe('Express App', () => {
-    const app = express();
-    app.set('view engine', 'jade');
-    app.use('/', indexRouter);
-    app.use('/users', userRouter);
+You should see the response from the server, an html source that includes "Welcome to Express" in the body.
 
-  it('should respond with a greeting message when getting the root endpoint (GET:localhost/', async () => {
-    const response = await request(app).get('/');
-    expect(response.status).to.equal(200);
-    expect(response.text).to.contain('Welcome to Express');
-    });
+In your editor, open the package.json file and in the "scripts" section add the following line
 
-  it('should respond with a  message when getting the users endpoint (GET:localhost/users', async () => {
-    const response = await request(app).get('/users');
-    expect(response.status).to.equal(200);
-    expect(response.text).to.contain('respond with a resource');
-    });
-  });
+        "test":  "mocha"
 
+Now on the terminal, run the test script
+
+        npm run test
+
+The test should run correctly and show 2 assertions passing
+
+Create a file in the parent folder of your project and name it .gitignore. Open it on your editor and add node_modules to it, This will tell git to ignore the folder with all the dependencies that where installed.
+
+Commit your changes to the main branch of your repository
+
+Create a new branch on git based on the main branch, and call it "Lab1"
+
+Push your repository to github
+ 
 
 ## 4.1 Functional Requirements
 ## 4.2 Business Rules
@@ -77,7 +74,7 @@ Paste the following into the test file
 
 Run the test in the terminal
 
-npm run test
+        npm run test
 
 # 6. Acceptance Criteria
 
@@ -87,10 +84,13 @@ Both test assertions should pass
 
 ## 6.2 Expected documentation and deliverables
 
+Provide a screenshot of the test script results
+
 # 7. Resources
 
 ## Official Language/Framework/Library Documentation 
-## Main concepts (Databases, Object Oriented Programming, Classes, Polymorphism, etc)
-## Blog articles, samples
-## Public repositories
-## Video tutorials
+
+https://nodejs.org/
+https://expressjs.com/
+https://www.postman.com/
+https://github.com/
