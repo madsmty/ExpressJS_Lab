@@ -27,15 +27,18 @@ In this lab, you will setup and run a basic ExpressJS app in NodeJS.
 Fork this git repository, and then clone the fork on your local machine
 
 Setup the expressJS application running the following command
-                                npx express-generator
+
+        npx express-generator
 
 Install the dependencies
-                                npm install
+
+        npm install
 
 Install Mocha, chai and supertest
-                                npm install --save-dev mocha
-                                npm install --save-dev chai
-                                npm install --save-dev supertest
+
+        npm install --save-dev mocha
+        npm install --save-dev chai
+        npm install --save-dev supertest
 
 # 4. Instructions
 
