@@ -68,11 +68,6 @@ Create a new branch on git based on the main branch, and call it "Lab1"
 
 Push your repository to github
  
-
-## 4.1 Functional Requirements
-## 4.2 Business Rules
-## 4.3 Technical Requirements
-
 # 5. Testing and Validation Requisites
 
 Run the test in the terminal
