@@ -13,20 +13,21 @@ describe('Express App', () => {
   app.use('/users', userRouter);
   app.use('/shipments', shipmentRouter);
 
-  it('Should respond with a greeting message when getting the root endpoint (GET:localhost/', async () => {
+  it('GET localhost/ should respond with a greeting message', async () => {
     const response = await request(app).get('/');
     expect(response.status).to.equal(200);
     expect(response.text).to.contain('Welcome to Express');
   });
 
-  it('Should respond with a 200 when getting the users endpoint (GET:localhost/users', async () => {
+  it('GET localhost/users should respond with a 200', async () => {
     const response = await request(app).get('/users');
     expect(response.status).to.equal(200);
   });
 
-  it('Should respond with a 200  when getting the shipments endpoint (GET:localhost/shipments', async () => {
+  it('GET localhost/shipments should respond with a 200', async () => {
     const response = await request(app).get('/shipments');
     expect(response.status).to.equal(200);
   });
+  
 });
 
