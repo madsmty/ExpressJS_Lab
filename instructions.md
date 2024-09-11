@@ -89,9 +89,9 @@ Provide a screenshot of the test script results
 # 7. Resources
 
 ## Official Language/Framework/Library Documentation 
-Mocha https://mochajs.org/
 
 - https://nodejs.org/
 - https://expressjs.com/
 - https://www.postman.com/
 - https://github.com/
+- https://mochajs.org/
