@@ -1,75 +1,87 @@
-# ExpressJS Lab I
+# ExpressJS Lab 2
+
+New Endpoints and Unit testing
 
 # 1. Overview
 
-In this lab, you will setup and run a basic ExpressJS app in NodeJS. 
+In the prevous lab, we created and ran a basic ExpressJS app in NodeJS.
+Now we will expand the app, we will add data files and pull the information from them
+We will add nodemon so the app restarts automatically whenever a file is changed.
 
 # 2. Environment Prerequisites
 
-* NodeJS v20 or higher
-* npm v10.4 or higher
-* nvm v1.1.11 or higher
-* npx v10.4 or higher
-* git v2.40.1 or higher
-* Postman v11.11 or higher
-* Mocha v10.7.3 or higher
-* Chai v5.1.1
-* Supertest v7.0.0
+All prerequisites from Lab 1
 
 # 3. Build Instructions
 
-  Create a folder and clone this repository in it.
+We will add nodemon to the proyect. Nodemon is a tool that restarts the app each time a change is done to a file. It will be installed only as a development dependency.
 
-- Install or Update NodeJS
-- Install or Update npm
-- Install or update nvm
-- Install or update npx
-- Install or update git
+To setup nodemon simply run the following command:
 
-Fork this git repository, and then clone the fork on your local machine
+        npm install --save-dev nodemon 
 
-Setup the expressJS application running the following command
+Modify the package.json file. In the line where the start script is defined, change it to the following:
 
-        npx express-generator
-
-Install the dependencies
-
-        npm install
-
-Install Mocha, chai and supertest
-
-        npm install --save-dev mocha
-        npm install --save-dev chai
-        npm install --save-dev supertest
+        "start": "nodemon ./bin/www",
 
 # 4. Instructions
 
-If the environment was setup correctly you should be able to run the start script
+There is a new folder in this lab. The folder "data" contains two files with data for users and shipments.
 
-        npm run start
+        - Create a new router for the shipments endpoint.
+        - Create a function to handle "/shipments" endpoint, it should return a list of all shipments
+        - Create a function to handle "/shipments/{shipmentId}", it should return the shipment specified in the shipmentId parameter.
+        - If the shipmentId is incorrect, ensure that the error message returned in the response indicates so.
+        - Modify the "/users" endpoint to return the info from the data file.
 
-After the server starts, open postman, and create a GET call to the following URL (note that port 3000 could be different if it is already being used on your local machine by another program): localhost:3000/ 
+With these changes, you should have 3 endpoints running correctly. Run the app and point your browser to the following endpoints
 
-You should see the response from the server, an html source that includes "Welcome to Express" in the body.
 
-In your editor, open the package.json file and in the "scripts" section add the following line
+        localhost:3000/users
+        localhost:3000/shipments
+        localhost:3000/shipments/2
 
-        "test":  "mocha"
+All of them should be returning the expected response as described previosuly.
 
-Now on the terminal, run the test script
+Unit testing is an important step of development and a good practice. In this lab we will modify the existing test file to add the following:
 
-        npm run test
+        - Test that the /users endpoint is returning status 200 (already implemented in the code)
+        - Test that the /users endpoint is returning an array
+        - Test that the array size returned by the endpoint is greater than 0
+        - If the size is greater than 0, test that the objects contained in the "/users" endpoint array have the following format
+                "userId":integer,
+                "name":string,
+                "last_name":string,
+                "email":string,
+                "billing_address":object
+        - Test that the /shipments endpoint is returning status 200 (already implemented in the code)
+        - Test that the /shipments endpoint is returning an array
+        - Test that the array size returned by the endpoint is greater than 0
+        - If the size is greater than 0, test that the objects contained in the "/shipments" endpoint array have the following format
+                "shipmentId":integer,
+                "userId":integer,
+                "shipping_address":object,
+                "shipping_date":date,
+                "estimated_arrival":date,
+                "status":string
+        - Test that status only has the following values in the array: "preparing","sent","delivered","cancelled"
+        - Test that the /shipments/{shipmentId} endpoint is returning status 200 (already implemented in the code)
+        - Test that the /shipments/{shipmentId} endpoint is returning an array
+        - Test that the array size returned by the endpoint is 0 or 1
+        - If the size is greater than 0, test that the object contained in the "/shipments/{shipmentId}" endpoint array have the following format
+                "shipmentId":integer,
+                "userId":integer,
+                "shipping_address":object,
+                "shipping_date":date,
+                "estimated_arrival":date,
+                "status":string
+        
+After the tests run correctly, commit the changes to your repo branch named "Lab_2"
 
-The test should run correctly and show 2 assertions passing
+Create a PR from branch "Lab_2" to branch "main"
 
-Create a file in the parent folder of your project and name it .gitignore. Open it on your editor and add node_modules to it, This will tell git to ignore the folder with all the dependencies that where installed.
+Your mentor will review and approve your PR
 
-Commit your changes to the main branch of your repository
-
-Create a new branch on git based on the main branch, and call it "Lab1"
-
-Push your repository to github
- 
 # 5. Testing and Validation Requisites
 
 Run the test in the terminal
@@ -80,7 +92,7 @@ Run the test in the terminal
 
 ## 6.1 Evaluation criteria
 
-Both test assertions should pass
+All test assertions should pass
 
 ## 6.2 Expected documentation and deliverables
 
