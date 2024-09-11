@@ -65,7 +65,7 @@ Unit testing is an important step of development and a good practice. In this la
                 "estimated_arrival":date,
                 "status":string
         - Test that status only has the following values in the array: "preparing","sent","delivered","cancelled"
-        - Test that the /shipments/{shipmentId} endpoint is returning status 200 (already implemented in the code)
+        - Test that the /shipments/{shipmentId} endpoint is returning status 200
         - Test that the /shipments/{shipmentId} endpoint is returning an array
         - Test that the array size returned by the endpoint is 0 or 1
         - If the size is greater than 0, test that the object contained in the "/shipments/{shipmentId}" endpoint array have the following format
