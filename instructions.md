@@ -26,41 +26,55 @@ In this lab, you will setup and run a basic ExpressJS app in NodeJS.
 - Install or update npx
 - Install or update git
 
-On the main directory, initialize the git repository
-  git init
+Fork this git repository, and then clone the fork on your local machine
 
 Setup the expressJS application running the following command
-  npx express-generator
+
+        npx express-generator
+
+Install the dependencies
+
+        npm install
 
 Install Mocha, chai and supertest
-  npm install mocha
-  npm install chai
-  npm install supertest
+
+        npm install --save-dev mocha
+        npm install --save-dev chai
+        npm install --save-dev supertest
 
 # 4. Instructions
 
-Make sure that the file test/routes.test.mjs exists
+If the environment was setup correctly you should be able to run the start script
 
-After setting up all dependencies, you should be able to run the app in the terminal
+        npm run start
 
-  npm run start
+After the server starts, open postman, and create a GET call to the following URL (note that port 3000 could be different if it is already being used on your local machine by another program): localhost:3000/ 
 
-After running the app, open Postman and excecute a GET call on both this endpoints:
+You should see the response from the server, an html source that includes "Welcome to Express" in the body.
 
--localhost:3000/
--localhost:3000/users
+In your editor, open the package.json file and in the "scripts" section add the following line
 
-The first endpoint should return a HTML template with status code 200. The second endpoint should return the following text: "return a resource"
+        "test":  "mocha"
 
-## 4.1 Functional Requirements
-## 4.2 Business Rules
-## 4.3 Technical Requirements
+Now on the terminal, run the test script
 
+        npm run test
+
+The test should run correctly and show 2 assertions passing
+
+Create a file in the parent folder of your project and name it .gitignore. Open it on your editor and add node_modules to it, This will tell git to ignore the folder with all the dependencies that where installed.
+
+Commit your changes to the main branch of your repository
+
+Create a new branch on git based on the main branch, and call it "Lab1"
+
+Push your repository to github
+ 
 # 5. Testing and Validation Requisites
 
 Run the test in the terminal
 
-  npm run test
+        npm run test
 
 # 6. Acceptance Criteria
 
@@ -70,11 +84,14 @@ Both test assertions should pass
 
 ## 6.2 Expected documentation and deliverables
 
+Provide a screenshot of the test script results
+
 # 7. Resources
 
 ## Official Language/Framework/Library Documentation 
 Mocha https://mochajs.org/
-## Main concepts (Databases, Object Oriented Programming, Classes, Polymorphism, etc)
-## Blog articles, samples
-## Public repositories
-## Video tutorials
+
+- https://nodejs.org/
+- https://expressjs.com/
+- https://www.postman.com/
+- https://github.com/
