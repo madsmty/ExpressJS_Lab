@@ -18,6 +18,8 @@ In this lab, you will setup and run a basic ExpressJS app in NodeJS.
 
 # 3. Build Instructions
 
+  Create a folder and clone this repository in it.
+
 - Install or Update NodeJS
 - Install or Update npm
 - Install or update nvm
@@ -37,37 +39,18 @@ Install Mocha, chai and supertest
 
 # 4. Instructions
 
-Create a folder named test in the parent folder of the app
-Inside this folder create a file named routes.test.mjs
+Make sure that the file test/routes.test.mjs exists
 
-Paste the following into the test file
+After setting up all dependencies, you should be able to run the app in the terminal
 
-  // test/routes.test.js
-  import {expect} from 'chai';
-  import request from 'supertest';
-  import express from 'express';
-  import indexRouter from '../routes/index.js';
-  import userRouter from '../routes/users.js';
+  npm run start
 
-  describe('Express App', () => {
-    const app = express();
-    app.set('view engine', 'jade');
-    app.use('/', indexRouter);
-    app.use('/users', userRouter);
+After running the app, open Postman and excecute a GET call on both this endpoints:
 
-  it('should respond with a greeting message when getting the root endpoint (GET:localhost/', async () => {
-    const response = await request(app).get('/');
-    expect(response.status).to.equal(200);
-    expect(response.text).to.contain('Welcome to Express');
-    });
+-localhost:3000/
+-localhost:3000/users
 
-  it('should respond with a  message when getting the users endpoint (GET:localhost/users', async () => {
-    const response = await request(app).get('/users');
-    expect(response.status).to.equal(200);
-    expect(response.text).to.contain('respond with a resource');
-    });
-  });
-
+The first endpoint should return a HTML template with status code 200. The second endpoint should return the following text: "return a resource"
 
 ## 4.1 Functional Requirements
 ## 4.2 Business Rules
@@ -77,7 +60,7 @@ Paste the following into the test file
 
 Run the test in the terminal
 
-npm run test
+  npm run test
 
 # 6. Acceptance Criteria
 
@@ -90,6 +73,7 @@ Both test assertions should pass
 # 7. Resources
 
 ## Official Language/Framework/Library Documentation 
+Mocha https://mochajs.org/
 ## Main concepts (Databases, Object Oriented Programming, Classes, Polymorphism, etc)
 ## Blog articles, samples
 ## Public repositories
