@@ -10,75 +10,46 @@ We will add nodemon so the app restarts automatically whenever a file is changed
 
 # 2. Environment Prerequisites
 
-All prerequisites from Lab 1
+All prerequisites from Lab 2
 
 # 3. Build Instructions
 
-We will add nodemon to the proyect. Nodemon is a tool that restarts the app each time a change is done to a file. It will be installed only as a development dependency.
-
-To setup nodemon simply run the following command:
-
-        npm install --save-dev nodemon 
-
-Modify the package.json file. In the line where the start script is defined, change it to the following:
-
-        "start": "nodemon ./bin/www",
+Follow the instructions from labs 1 and 2 if not done already.
 
 # 4. Instructions
 
-There is a new folder in this lab. The folder "data" contains two files with data for users and shipments.
+- Create a folder named controllers. Inside create a file for users and shipments. These files should contain the controller functions the routers will refer to.
 
-        - Create a new router for the shipments endpoint.
-        - Create a function to handle "/shipments" endpoint, it should return a list of all shipments
-        - Create a function to handle "/shipments/{shipmentId}", it should return the shipment specified in the shipmentId parameter.
-        - If the shipmentId is incorrect, ensure that the error message returned in the response indicates so.
-        - Modify the "/users" endpoint to return the info from the data file.
+- Create a folder named transformers and likewise, two .js files for users and shipments. These files will contain the transformer functions used by the controllers.
 
-With these changes, you should have 3 endpoints running correctly. Run the app and point your browser to the following endpoints
+- Create a controller function that gets the list of all users.
+- Create a controller function that gets one user, depending on a userId parameter passed to it.
+- Create a controller function that returns the list of all shipments
+- Create a controller function that returns one shipment, depending on a shipmentId parameter
+- Create a shipment transformer function. This function will add a field that calculates the number of days until the estimated delivery date compared to the moment the function is called.
+- Create a user transformer function that returns an additional field named "full_name". This field should be in the format: "last_name, first name"  
+- For the existing functions that return both users and shipments, this should check if there was a parameter called "template" in the url. The parameters values can be true or false. If the value is true, the endpoint should return in the reponse the rendered template. If it is false or no parameter was sent, the response should be just the json object.
 
+With these changes, you should have 4 endpoints running correctly. Run the app and point your browser to the following endpoints
 
         localhost:3000/users
+        localhost:3000/users/1
         localhost:3000/shipments
         localhost:3000/shipments/2
 
-All of them should be returning the expected response as described previosuly.
 
-Unit testing is an important step of development and a good practice. In this lab we will modify the existing test file to add the following:
+All of them should be returning the expected response as described previosuly in json format.
+The following 4 calls should return the same information, but using the html template
 
-        - Test that the /users endpoint is returning status 200 (already implemented in the code)
-        - Test that the /users endpoint is returning an array
-        - Test that the array size returned by the endpoint is greater than 0
-        - If the size is greater than 0, test that the objects contained in the "/users" endpoint array have the following format
-                "userId":integer,
-                "name":string,
-                "last_name":string,
-                "email":string,
-                "billing_address":object
-        - Test that the /shipments endpoint is returning status 200 (already implemented in the code)
-        - Test that the /shipments endpoint is returning an array
-        - Test that the array size returned by the endpoint is greater than 0
-        - If the size is greater than 0, test that the objects contained in the "/shipments" endpoint array have the following format
-                "shipmentId":integer,
-                "userId":integer,
-                "shipping_address":object,
-                "shipping_date":date,
-                "estimated_arrival":date,
-                "status":string
-        - Test that status only has the following values in the array: "preparing","sent","delivered","cancelled"
-        - Test that the /shipments/{shipmentId} endpoint is returning status 200
-        - Test that the /shipments/{shipmentId} endpoint is returning an array
-        - Test that the array size returned by the endpoint is 0 or 1
-        - If the size is greater than 0, test that the object contained in the "/shipments/{shipmentId}" endpoint array have the following format
-                "shipmentId":integer,
-                "userId":integer,
-                "shipping_address":object,
-                "shipping_date":date,
-                "estimated_arrival":date,
-                "status":string
+
+        localhost:3000/users
+        localhost:3000/users/1
+        localhost:3000/shipments
+        localhost:3000/shipments/2
         
-After the tests run correctly, commit the changes to your repo branch named "Lab_2"
+After the tests run correctly, commit the changes to your repo branch named "Lab_3"
 
-Create a PR from branch "Lab_2" to branch "main"
+Create a PR from branch "Lab_3" to branch "main"
 
 Your mentor will review and approve your PR
 

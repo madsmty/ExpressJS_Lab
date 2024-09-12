@@ -1,8 +1,8 @@
-# ExpressJs Lab 2
+# ExpressJs Lab 3
 
 ### Overview
 
-This lab is intended to introduce ExpressJS. Lab 2 consists in setting up new endpoints, returning data from predefined data files, and creating unit tests for the new endpoints.
+This lab is intended to introduce ExpressJS. Lab 3 consists in adding controller and transformer folders. Setup a transformer function, and read parameters passed to the enpoint.
 
 [Instructions](./instructions.md)
 
