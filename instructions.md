@@ -15,6 +15,7 @@ In this lab, you will setup and run a basic ExpressJS app in NodeJS.
 * Mocha v10.7.3 or higher
 * Chai v5.1.1
 * Supertest v7.0.0
+* Nodemon 
 
 # 3. Build Instructions
 
@@ -41,6 +42,16 @@ Install Mocha, chai and supertest
         npm install --save-dev mocha
         npm install --save-dev chai
         npm install --save-dev supertest
+
+We will add nodemon to the proyect. Nodemon is a tool that restarts the app each time a change is done to a file. It will be installed only as a development dependency.
+
+To setup nodemon simply run the following command:
+
+        npm install --save-dev nodemon 
+
+Modify the package.json file. In the line where the start script is defined, change it to the following:
+
+        "start": "nodemon ./bin/www",
 
 # 4. Instructions
 
